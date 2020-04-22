@@ -6,7 +6,7 @@ public class CreateDatabase implements DatabaseCommand {
     private ExecutionEnvironment environment;
     private String databaseName;
 
-    CreateDatabase(ExecutionEnvironment environment, String databaseName) {
+    public CreateDatabase(ExecutionEnvironment environment, String databaseName) {
         this.environment = environment;
         this.databaseName = databaseName;
     }

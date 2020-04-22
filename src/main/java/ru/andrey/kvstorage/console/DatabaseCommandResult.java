@@ -5,11 +5,11 @@ import java.util.Optional;
 public interface DatabaseCommandResult {
 
     static DatabaseCommandResult success(String result) {
-        return new CommandResult(result, DatabaseCommandStatus.SUCCESS);
+        return new CommandResult(result, DatabaseCommandStatus.SUCCESS, null);
     }
 
     static DatabaseCommandResult error(String message) {
-        return new CommandResult(message, DatabaseCommandStatus.FAILED);
+        return new CommandResult(null, DatabaseCommandStatus.FAILED, message);
     }
 
     Optional<String> getResult();
@@ -26,11 +26,13 @@ public interface DatabaseCommandResult {
 
     class CommandResult implements DatabaseCommandResult {
         private String result;
+        private String message;
         private DatabaseCommandStatus status;
 
-        private CommandResult(String result, DatabaseCommandStatus status) {
+        private CommandResult(String result, DatabaseCommandStatus status, String message) {
             this.result = result;
             this.status = status;
+            this.message = message;
         }
 
         @Override
@@ -50,7 +52,7 @@ public interface DatabaseCommandResult {
 
         @Override
         public String getErrorMessage() {
-            return this.result;
+            return this.message;
         }
     }
 }

@@ -7,7 +7,9 @@ import java.util.Optional;
 
 public class ReadKey implements DatabaseCommand {
     private ExecutionEnvironment environment;
-    private String tableName, databaseName, objectKey;
+    private String tableName;
+    private String databaseName;
+    private String objectKey;
 
     public ReadKey(ExecutionEnvironment environment, String databaseName, String tableName, String objectKey) {
         this.environment = environment;

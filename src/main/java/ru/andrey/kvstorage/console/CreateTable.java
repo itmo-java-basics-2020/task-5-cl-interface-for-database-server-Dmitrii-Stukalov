@@ -7,9 +7,10 @@ import java.util.Optional;
 
 public class CreateTable implements DatabaseCommand {
     private ExecutionEnvironment environment;
-    private String databaseName, tableName;
+    private String databaseName;
+    private String tableName;
 
-    CreateTable(ExecutionEnvironment environment, String databaseName, String tableName) {
+    public CreateTable(ExecutionEnvironment environment, String databaseName, String tableName) {
         this.environment = environment;
         this.databaseName = databaseName;
         this.tableName = tableName;

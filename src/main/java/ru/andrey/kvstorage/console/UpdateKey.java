@@ -7,7 +7,10 @@ import java.util.Optional;
 
 public class UpdateKey implements DatabaseCommand {
     private ExecutionEnvironment environment;
-    private String tableName, databaseName, objectKey, objectValue;
+    private String tableName;
+    private String databaseName;
+    private String objectKey;
+    private String objectValue;
 
     public UpdateKey(ExecutionEnvironment environment, String databaseName, String tableName, String objectKey, String objectValue) {
         this.environment = environment;
